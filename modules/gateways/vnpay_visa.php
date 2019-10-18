@@ -1,9 +1,9 @@
 <?php
 
-function vnpay_config()
+function vnpayvisa_config()
 {
     $configarray = array(
-        "name" => array("Type" => "System", "Value" => "VNPay QR"),
+        "name" => array("Type" => "System", "Value" => "Visa/Master Card"),
         "webcode" => array("Name" => "Web Code", "Type" => "text", "Size" => "20",),
         "secret" => array("Name" => "Secret Key", "Type" => "text", "Size" => "50"),
         "mode" => array("Name" => "Process Mode", "Type" => "dropdown", "Options" => "Live,Sandbox"),
@@ -12,7 +12,7 @@ function vnpay_config()
     return $configarray;
 }
 
-function vnpay_link($params)
+function vnpayvisa_link($params)
 {
     global $config;
     $langpaynow = $params['langpaynow'];
@@ -25,7 +25,7 @@ function vnpay_link($params)
     if($params['clientdetails']['language'] == "Vietnamese") {
         $vnp_Locale = 'vn';
     }
-    $vnp_BankCode = $params['bankcode'];
+    $vnp_BankCode = "VISA";
     $vnp_IpAddr = "157.245.194.20";
     $siteAddress = $config['site_address'];
     if ($config['config_ssl_allow']) {
